@@ -1,0 +1,12 @@
+Dim count = 0
+
+Dim add = (x, y) => {
+  count = count + 1
+  x + y
+}
+
+Dim num1 = add(1, 2)
+assertResult(1)(count)
+
+Dim num2 = add(1, 2)
+assertResult(2)(count)

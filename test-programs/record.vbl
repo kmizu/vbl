@@ -1,0 +1,73 @@
+Record Person
+  name As *
+  age As Int
+  profile As #Profile
+End Record
+
+Record Profile
+  description As *
+  hobby As *
+End Record
+
+Record Stub
+  p As #GPoint<Int, Int>
+End Record
+
+Record X1
+  x2 As #X2
+End Record
+
+Record X2
+  g As #GPoint<Int, Int>
+End Record
+
+Record S
+  v As Int
+  to_string As (*) => *
+End Record
+
+Record GPoint<'x, 'y>
+  x As 'x
+  y As 'y
+End Record
+
+Record Pair <'a, 'b>
+  _1 As 'a
+  _2 As 'b
+End Record
+
+Dim s = #S(100, (this) => {
+  "#{(this As #S).v}"
+})
+
+assert("100" == s.to_string())
+
+Dim stub = #Stub(#GPoint(3, 5))
+assertResult(3)(stub.p.x)
+assertResult(5)(stub.p.y)
+
+Dim x1 = #X1(#X2(#GPoint(4, 6)))
+assertResult(4)(x1.x2.g.x)
+assertResult(6)(x1.x2.g.y)
+
+Dim point = #Point(1000, 2000)
+assertResult(1000)(point.x)
+assertResult(2000)(point.y)
+
+Dim person = #Person("Kota Mizushima", 33, #Profile("Software Engineer", "Programming, Running, and Video Games"))
+assertResult("Kota Mizushima")(person.name)
+assertResult(33)(person.age)
+assertResult("Software Engineer")(person.profile.description)
+assertResult("Programming, Running, and Video Games")(person.profile.hobby)
+
+Dim pair1 As #Pair<Int, Int> = #Pair(1, 2)
+assertResult(1)(pair1._1)
+assertResult(2)(pair1._2)
+
+Dim pair2 = #Pair(1.5, 2.5)
+assertResult(1.5)(pair2._1)
+assertResult(2.5)(pair2._2)
+
+Dim pair3 = #Pair(true, 1)
+assertResult(true)(pair3._1)
+assertResult(1)(pair3._2)

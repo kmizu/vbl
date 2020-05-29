@@ -1,0 +1,17 @@
+// url
+Dim url1 = new java.net.URL("https://github.com/kmizu/pvb")
+Dim url2 = url("https://github.com/kmizu/pvb")
+PrintLine(url2)
+assertResult(url1)(url2)
+
+// uri
+Dim uri1 = new java.net.URI("https://github.com/kmizu/pvb")
+Dim uri2 = uri("https://github.com/kmizu/pvb")
+PrintLine(uri2)
+assertResult(uri1)(uri2)
+
+// desktop() -- not supported in Travis CI environment
+//Dim dt = desktop();
+//PrintLine(dt)
+//PrintLine(dt->isDesktopSupported())
+// dt->mail()

@@ -1,0 +1,22 @@
+Record P
+  x As Int
+  y As Int
+  z As Int
+End Record
+
+Record Q
+  x As Double
+  y As Double
+  z As Double
+End Record
+
+Record T <'a, 'b>
+  x As 'a
+  y As 'b
+End Record
+
+Function add_xy(o)
+  o.x + o.y
+End Function
+assert(3 == add_xy(#P(1, 2, 3)))
+assert(3 == add_xy(#T(1, 2)))

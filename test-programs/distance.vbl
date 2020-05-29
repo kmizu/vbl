@@ -1,0 +1,24 @@
+Record Player
+  x As Int
+  y As Int
+  name As String
+  hp As Int
+  wp As Int
+End Record
+
+Record Enemy
+  x As Int
+  y As Int
+  name As String
+  hp As Int
+End Record
+
+Function distance(p, e)
+  Dim dx = abs(double(p.x - e.x))
+  Dim dy = abs(double(p.y - e.y))
+  sqrt(dx * dx + dy * dy)
+End Function
+
+Dim p = #Player(4, 6, "Hero", 50, 10)
+Dim e = #Enemy(1, 2, "Slime", 5)
+assertResult(5.0)(distance(p, e))

@@ -1,0 +1,3 @@
+Dim s As * = (100 As *) // 100 is casted to dynamic type ( `*` )
+
+PrintLine(s)

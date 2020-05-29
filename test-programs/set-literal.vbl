@@ -1,0 +1,12 @@
+Dim set1 = %(1, 2, 3)
+PrintLine(set1)
+
+Dim set2 = %(1 2 3)
+PrintLine(set2)
+
+Dim set3 = %(
+    1
+    2
+    3
+)
+PrintLine(set3)

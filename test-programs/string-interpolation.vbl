@@ -1,0 +1,4 @@
+Dim x = 10
+Dim y = 20
+assertResult("x = 10, y = 20")("x = #{x As *}, y = #{y As *}")
+assertResult("x + y = 30")("x + y = #{(x + y) As *}")
